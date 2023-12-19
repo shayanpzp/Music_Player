@@ -6,12 +6,9 @@ def sign_up(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=password)
+            user = form.save()
             login(request, user)
-            return redirect('home') 
+            return redirect('home')  # Redirect to the home page or other appropriate page
     else:
         form = CustomUserCreationForm()
     return render(request, 'signup.html', {'form': form})

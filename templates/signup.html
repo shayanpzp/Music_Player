@@ -1,32 +1,132 @@
 {% extends 'base.html' %}
 
-{% block title %}Sign Up{% endblock %}
+{% block extra_css %}
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    background-color: #131921;
+    font-family: Arial, sans-serif;
+  }
+
+  .container {
+    position: relative;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .signup-form {
+  background-color: #262c35;
+  padding: 60px; /* Increased padding */
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px; /* Increased max-width */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+  .form-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 20px; /* This adds padding to the right side of each .form-group, including the center box */
+}
+
+
+
+.form-group label {
+  color: #ffa500;
+  margin-bottom: 5px; /* Adjusted space between label and input */
+  font-size: 1.1rem; /* Larger font size for labels */
+}
+
+.form-control {
+  background-color: #1e2124;
+  color: #fff;
+  border: 1px solid #ffa500;
+  font-size: 1rem; /* Larger font size for input text */
+}
+
+
+
+.form-control::placeholder {
+  color: #ddd; /* Adjust placeholder color if needed */
+  opacity: 1; /* Fix for browsers that render placeholders with low opacity */
+  font-size: 1rem; /* Larger font size for placeholders */
+}
+
+
+.btn {
+  font-size: 1.2rem; /* Larger font size for button text */
+}
+
+/* Specific styles for gender selection to keep them inline */
+.gender-selection {
+  display: flex;
+  align-items: center;
+}
+
+.gender-selection label {
+  margin-right: 10px; /* Adjust space between radio button and label */
+}
+
+.gender-selection input[type="radio"] {
+  margin-right: 5px; /* Adjust space between radio buttons */
+}
+
+/* ... Other CSS ... */
+
+@media (max-width: 768px) {
+  .signup-form {
+    width: 90%;
+  }
+  
+  .form-group {
+  margin-bottom: 15px; /* Increased spacing between form fields */
+  }
+}
+</style>
+{% endblock %}
 
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        <h2 class="text-center">Sign Up</h2>
-        <form method="post">
-            {% csrf_token %}
-            <!-- Form fields for username, email, password, etc. -->
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" name="username">
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" name="email">
-            </div>
-            <div class="form-group">
-                <label for="password1">Password</label>
-                <input type="password" class="form-control" id="password1" name="password1">
-            </div>
-            <div class="form-group">
-                <label for="password2">Confirm Password</label>
-                <input type="password" class="form-control" id="password2" name="password2">
-            </div>
-            <button type="submit" class="btn btn-primary">Sign Up</button>
-        </form>
+<div class="container">
+  <form class="signup-form" action="{% url 'signup' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="first_name">First Name:</label>
+      <input type="text" id="first_name" name="first_name" placeholder="First Name">
     </div>
+    <div class="form-group">
+      <label for="last_name">Last Name:</label>
+      <input type="text" id="last_name" name="last_name" placeholder="Last Name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email ID:</label>
+      <input type="email" id="email" name="email" placeholder="Email Id">
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Password">
+    </div>
+    <div class="form-group gender-selection">
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+    </div>
+    <div class="form-group terms">
+      <input type="checkbox" id="terms" name="terms">
+      <label for="terms">I accept the terms and conditions</label>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-lg btn-block btn-warning">Submit</button>
+    </div>
+      
+  </form>
 </div>
 {% endblock %}
