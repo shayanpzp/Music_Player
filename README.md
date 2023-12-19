@@ -24,8 +24,7 @@ This project is under the [MIT License](LICENSE).
 ## Contact
 Reach out for questions or contributions at [shayanpzp1@gmail.com](mailto:shayanpzp1@gmail.com).
 
-![Alt text](static\img\An Entity-Relationship Diagram (ERD) for a music player website.png)
-
+<p align="center"> <img src="static\img\An Entity-Relationship Diagram (ERD) for a music player website.png" alt="Price_Comparison_pzp" /> </p>
 
 ---
 
