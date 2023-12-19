@@ -24,6 +24,9 @@ This project is under the [MIT License](LICENSE).
 ## Contact
 Reach out for questions or contributions at [shayanpzp1@gmail.com](mailto:shayanpzp1@gmail.com).
 
+![Alt text](static\img\An Entity-Relationship Diagram (ERD) for a music player website.png)
+
+
 ---
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/shayanpzp/Music_Player)
