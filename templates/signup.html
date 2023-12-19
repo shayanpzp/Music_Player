@@ -22,10 +22,10 @@
 
   .signup-form {
   background-color: #262c35;
-  padding: 60px; /* Increased padding */
+  padding: 60px;
   border-radius: 8px;
   width: 100%;
-  max-width: 500px; /* Increased max-width */
+  max-width: 500px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
@@ -33,52 +33,51 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-right: 20px; /* This adds padding to the right side of each .form-group, including the center box */
+  padding-right: 20px;
 }
 
 
 
 .form-group label {
   color: #ffa500;
-  margin-bottom: 5px; /* Adjusted space between label and input */
-  font-size: 1.1rem; /* Larger font size for labels */
+  margin-bottom: 5px;
+  font-size: 1.1rem; 
 }
 
 .form-control {
   background-color: #1e2124;
   color: #fff;
   border: 1px solid #ffa500;
-  font-size: 1rem; /* Larger font size for input text */
+  font-size: 1rem; 
 }
 
 
 
 .form-control::placeholder {
-  color: #ddd; /* Adjust placeholder color if needed */
-  opacity: 1; /* Fix for browsers that render placeholders with low opacity */
-  font-size: 1rem; /* Larger font size for placeholders */
+  color: #ddd; 
+  opacity: 1; 
+  font-size: 1rem; 
 }
 
 
 .btn {
-  font-size: 1.2rem; /* Larger font size for button text */
+  font-size: 1.2rem; 
 }
 
-/* Specific styles for gender selection to keep them inline */
+
 .gender-selection {
   display: flex;
   align-items: center;
 }
 
 .gender-selection label {
-  margin-right: 10px; /* Adjust space between radio button and label */
+  margin-right: 10px; 
 }
 
 .gender-selection input[type="radio"] {
-  margin-right: 5px; /* Adjust space between radio buttons */
+  margin-right: 5px; 
 }
 
-/* ... Other CSS ... */
 
 @media (max-width: 768px) {
   .signup-form {
@@ -86,7 +85,7 @@
   }
   
   .form-group {
-  margin-bottom: 15px; /* Increased spacing between form fields */
+  margin-bottom: 15px; 
   }
 }
 </style>
@@ -97,20 +96,21 @@
   <form class="signup-form" action="{% url 'signup' %}" method="post">
     {% csrf_token %}
     <div class="form-group">
-      <label for="first_name">First Name:</label>
-      <input type="text" id="first_name" name="first_name" placeholder="First Name">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Username" class="form-control" required>
+        {{ form.username.errors }}
     </div>
+    
     <div class="form-group">
-      <label for="last_name">Last Name:</label>
-      <input type="text" id="last_name" name="last_name" placeholder="Last Name">
+        <label for="password1">Password:</label>
+        <input type="password" id="password1" name="password1" placeholder="Password" class="form-control" required>
+        {{ form.password1.errors }}
     </div>
+    
     <div class="form-group">
-      <label for="email">Email ID:</label>
-      <input type="email" id="email" name="email" placeholder="Email Id">
-    </div>
-    <div class="form-group">
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" placeholder="Password">
+        <label for="password2">Confirm Password:</label>
+        <input type="password" id="password2" name="password2" placeholder="Confirm Password" class="form-control" required>
+        {{ form.password2.errors }}
     </div>
     <div class="form-group gender-selection">
         <label>Gender:</label>

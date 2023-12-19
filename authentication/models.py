@@ -3,7 +3,7 @@ from django.db import models
 
 class CustomUser(AbstractUser):
     is_premium = models.BooleanField(default=False)
-
+    gender = models.CharField(max_length=10, choices=[('male', 'Male'), ('female', 'Female')], blank=True)
     groups = models.ManyToManyField(
         Group,
         related_name="customuser_groups",
@@ -18,3 +18,5 @@ class CustomUser(AbstractUser):
         help_text="Specific permissions for this user.",
         verbose_name="user permissions",
     )
+
+    
